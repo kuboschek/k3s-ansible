@@ -175,6 +175,7 @@
         --helm-set routingMode={{ cilium_mode }}
         --helm-set autoDirectNodeRoutes={{ "true" if cilium_mode == "native" else "false" }}
         --helm-set kubeProxyReplacement={{ kube_proxy_replacement }}
+        --helm-set enable-ipv4-masquerade=true
         --helm-set bpf.masquerade={{ enable_bpf_masquerade }}
         --helm-set bgpControlPlane.enabled={{ cilium_bgp | default("false") }}
         --helm-set hubble.enabled={{ "true" if cilium_hubble else "false" }}
