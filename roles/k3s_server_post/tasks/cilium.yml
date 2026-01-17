@@ -166,6 +166,7 @@
         --version "{{ cilium_tag }}"
         --helm-set operator.replicas="1"
         {{ '--helm-set devices=' + cilium_iface if cilium_iface != 'auto' else '' }}
+        {{ '--helm-set direct-routing-device=' + cilium_iface if cilium_iface != 'auto' else ''}}
         --helm-set ipam.operator.clusterPoolIPv4PodCIDRList={{ cluster_cidr }}
         {% if cilium_mode == "native" or (cilium_bgp and cilium_exportPodCIDR != 'false') %}
         --helm-set ipv4NativeRoutingCIDR={{ cluster_cidr }}
