@@ -1,3 +1,4 @@
 {
-    "ansible.python.interpreterPath": "/home/leo/dev/k3s-ansible/.env/bin/python"
+    "ansible.python.interpreterPath": "/home/leo/dev/k3s-ansible/.env/bin/python",
+    "explorer.excludeGitIgnore": false
 }
