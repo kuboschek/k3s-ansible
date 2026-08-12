@@ -21,12 +21,10 @@ kind: L2Advertisement
 metadata:
   name: default
   namespace: metallb-system
-{% if metal_lb_interfaces %}
+{% if metal_lb_interfaces | default([]) | length > 0 %}
 spec:
-  interfaces:
-  {% for interface in metal_lb_interfaces %}
-    - {{ interface }}
-  {% endfor %}
+  interfaces:{% for iface in metal_lb_interfaces %}
+    - {{ iface }}{% endfor %}
 {% endif %}
 {% endif %}
 {% if metal_lb_mode == "bgp" %}
